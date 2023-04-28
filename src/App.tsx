@@ -1,19 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {AnyAction} from "redux";
 
 type Props = {
     todos: ITodo[],
-    addTodo: (todo: ITodo) => void
+    addTodo: (todo: ITodo) => AnyAction
+    addTodoAsync: (todo: ITodo) => AnyAction
 }
-function App({ todos, addTodo }: Props) {
+function App({ todos, addTodo, addTodoAsync }: Props) {
 
     const onSavePressed = () => {
         const todo: ITodo = {
             id: 3, priority: 70, value: "Pertanyaanku untung dia balik jam 3 pagi."
         }
         console.log(JSON.stringify(todo))
-        addTodo(todo)
+        addTodoAsync(todo)
     }
     return (
         <div className="App">

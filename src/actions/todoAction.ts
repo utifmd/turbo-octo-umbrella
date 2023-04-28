@@ -25,6 +25,7 @@ export enum TodoAction {
 }
 
 const addTodoAction = (todo: ITodo): ITodoAction => ({
+    payload: todo,
     [CALL_API]: {
         endpoint: "http://example.com",
         schema: todo,

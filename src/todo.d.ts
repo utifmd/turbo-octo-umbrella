@@ -1,15 +1,15 @@
 interface ISchema {}
 
+interface ICallApiAction {
+    types: [request, failed, success]
+    endpoint: string
+    schema: ISchema
+}
 interface ITodo extends ISchema {
-    id: number,
-    priority: number,
+    id: number
+    priority: number
     value: string
 }
-
 interface ITodoAction {
-    [key: string]: string | {
-        types: string[],
-        endpoint: string,
-        schema: ISchema
-    }
+    [key: string]: ITodo | ICallApiAction
 }
